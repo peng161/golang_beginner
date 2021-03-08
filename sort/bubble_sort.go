@@ -1,18 +1,8 @@
-package main
+package sort
 
 import "fmt"
 
-func main() {
-
-	floatArr := []float64{32.1, 10.5, 36.8, 21.4, 62.1, 50.4}
-	intArr := []int{32, 48, 12, 31, 25, 28}
-	fmt.Println("Float Arr")
-	loopThruFloat64(floatArr)
-	fmt.Println("Int Arr")
-	loopThruInt(intArr)
-}
-
-func loopThruFloat64(floatArr []float64) {
+func LoopThruFloat64(floatArr []float64) {
 	for i := 0; i < len(floatArr); i++ {
 		pushLargerValueFloat64(floatArr, i)
 	}
@@ -29,7 +19,7 @@ func pushLargerValueFloat64(floatArr []float64, index int) {
 	fmt.Printf("No %v Largest Value: %v\n", index+1, floatArr[len(floatArr)-(1+index)])
 }
 
-func loopThruInt(intArr []int) {
+func LoopThruInt(intArr []int) {
 	for i := 0; i < len(intArr); i++ {
 		pushLargerValue(intArr, i)
 	}
