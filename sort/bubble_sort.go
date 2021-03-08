@@ -1,8 +1,7 @@
 package sort
 
-import "fmt"
-
-func LoopThruFloat64(floatArr []float64) {
+//BubbleSortFloat64 bubble sort float64 array.
+func BubbleSortFloat64(floatArr []float64) {
 	for i := 0; i < len(floatArr); i++ {
 		pushLargerValueFloat64(floatArr, i)
 	}
@@ -16,10 +15,11 @@ func pushLargerValueFloat64(floatArr []float64, index int) {
 			floatArr[i], floatArr[i+1] = floatArr[i+1], floatArr[i]
 		}
 	}
-	fmt.Printf("No %v Largest Value: %v\n", index+1, floatArr[len(floatArr)-(1+index)])
+	//fmt.Printf("No %v Largest Value: %v\n", index+1, floatArr[len(floatArr)-(1+index)])
 }
 
-func LoopThruInt(intArr []int) {
+// BubbleSortInt is to bubble sort int array.
+func BubbleSortInt(intArr []int) {
 	for i := 0; i < len(intArr); i++ {
 		pushLargerValue(intArr, i)
 	}
@@ -33,5 +33,5 @@ func pushLargerValue(intArr []int, index int) {
 			intArr[i], intArr[i+1] = intArr[i+1], intArr[i]
 		}
 	}
-	fmt.Printf("No %v Largest Value: %v\n", index+1, intArr[len(intArr)-(1+index)])
+	//fmt.Printf("No %v Largest Value: %v\n", index+1, intArr[len(intArr)-(1+index)])
 }
