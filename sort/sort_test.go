@@ -22,6 +22,16 @@ func TestSort(t *testing.T) {
 	testMergeSortInt(t, intNegArr)
 }
 
+func BenchmarkMergeSort(b *testing.B) {
+	intNegArr := []int{-1, -3, -5, -7, -9, -5}
+	benchmarkMergeSort(b, intNegArr)
+}
+
+func BenchmarkBubbleSort(b *testing.B) {
+	floatNegArr := []float64{-1, -3, -5, -7, -9, -5}
+	benchmarkBubbleSort(b, floatNegArr)
+}
+
 func testBubbleSortFloat(t *testing.T, arr []float64) {
 	BubbleSortFloat64(arr)
 	for i := 0; i < (len(arr) - 1); i++ {
@@ -39,5 +49,17 @@ func testMergeSortInt(t *testing.T, arr []int) {
 			t.Error("Expected index " + strconv.Itoa(i) + " has " + strconv.Itoa(arr[i]) +
 				" to be smaller than index " + strconv.Itoa(i+1) + " has " + strconv.Itoa(arr[i+1]))
 		}
+	}
+}
+
+func benchmarkBubbleSort(b *testing.B, arr []float64) {
+	for i := 0; i < b.N; i++ {
+		BubbleSortFloat64(arr)
+	}
+}
+
+func benchmarkMergeSort(b *testing.B, arr []int) {
+	for i := 0; i < b.N; i++ {
+		MergeSort(arr)
 	}
 }
