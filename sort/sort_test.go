@@ -1,6 +1,7 @@
 package sort
 
 import (
+	"math/rand"
 	"strconv"
 	"testing"
 )
@@ -23,13 +24,13 @@ func TestSort(t *testing.T) {
 }
 
 func BenchmarkMergeSort(b *testing.B) {
-	intNegArr := []int{-1, -3, -5, -7, -9, -5}
-	benchmarkMergeSort(b, intNegArr)
+	//intNegArr := []int{-1, -3, -5, -7, -9, -5}
+	benchmarkMergeSort(b, getIntArr(100))
 }
 
 func BenchmarkBubbleSort(b *testing.B) {
-	floatNegArr := []float64{-1, -3, -5, -7, -9, -5}
-	benchmarkBubbleSort(b, floatNegArr)
+	//floatNegArr := []float64{-1, -3, -5, -7, -9, -5}
+	benchmarkBubbleSort(b, getFloatArr(100))
 }
 
 func testBubbleSortFloat(t *testing.T, arr []float64) {
@@ -62,4 +63,22 @@ func benchmarkMergeSort(b *testing.B, arr []int) {
 	for i := 0; i < b.N; i++ {
 		MergeSort(arr)
 	}
+}
+
+func getIntArr(n int) []int {
+	arr := make([]int, n)
+
+	for i := 0; i < len(arr); i++ {
+		arr[i] = rand.Intn(100)
+	}
+	return arr
+}
+
+func getFloatArr(n int) []float64 {
+	arr := make([]float64, n)
+
+	for i := 0; i < len(arr); i++ {
+		arr[i] = rand.Float64() * 100.0
+	}
+	return arr
 }
