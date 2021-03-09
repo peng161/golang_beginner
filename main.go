@@ -2,6 +2,8 @@ package main
 
 import (
 	//"github.com/peng161/golang_beginner/gorountines" //Use for go-rountines example
+	"fmt"
+
 	"github.com/peng161/golang_beginner/sort" //Use for sort example
 )
 
@@ -14,12 +16,12 @@ func main() {
 			fmt.Printf("Index %v contains %v\n", i, floatArr[i])
 		}
 	*/
-	sort.BubbleSortInt(intArr)
-	/*
-		for i := 0; i < len(intArr); i++ {
-			fmt.Printf("Index %v contains %v\n", i, intArr[i])
-		}
-	*/
+	//sort.BubbleSortInt(intArr)
+	sort.MergeSort(intArr)
+
+	for i := 0; i < len(intArr); i++ {
+		fmt.Printf("Index %v contains %v\n", i, intArr[i])
+	}
 
 	/*
 		for i := 0; i < 10; i++ {
