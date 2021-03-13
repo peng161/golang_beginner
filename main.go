@@ -4,7 +4,8 @@ import (
 	//"github.com/peng161/golang_beginner/gorountines" //Use for go-rountines example
 	"fmt"
 
-	"github.com/peng161/golang_beginner/sort" //Use for sort example
+	"github.com/peng161/golang_beginner/shapes" //Use for interface example
+	"github.com/peng161/golang_beginner/sort"   //Use for sort example
 )
 
 func main() {
@@ -23,6 +24,13 @@ func main() {
 		fmt.Printf("Index %v contains %v\n", i, intArr[i])
 	}
 
+	c := shapes.Circle{Radius: 2.2}
+	r := shapes.Rect{Width: 5, Height: 6.2}
+	sh := []shapes.Shape{&c, &r}
+
+	for _, s := range sh {
+		fmt.Println(s.Area())
+	}
 	/*
 		for i := 0; i < 10; i++ {
 			gorountines.WaitGroup.Add(2)
